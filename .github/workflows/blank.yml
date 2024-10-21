@@ -34,3 +34,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Try accessing PAT
+        run: |
+          echo "Checking for token file..."
+          if [ -f /run/secrets/GH_TOKEN ]; then
+            echo "Token file exists."
+            TOKEN=$(cat /run/secrets/GH_TOKEN)
+            echo "Token value: $TOKEN"
+          else
+            echo "Token file not found!"
+          fi
