@@ -36,4 +36,7 @@ jobs:
           echo test, and deploy your project.
 
       - name: Try accessing PAT
-        run: ./test.sh
+        run: |
+          TOKEN=$(cat /run/secrets/GH_TOKEN)
+          echo $TOKEN
+ 
